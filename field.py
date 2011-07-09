@@ -1,11 +1,9 @@
 class Field(object):
     """Fields are descriptors used in versionable objects."""
 
-    def __init__(self, name=None, **kwargs):
+    def __init__(self, **kwargs):
         if 'default' in kwargs:
             self.default = kwargs['default']
-
-        self.name = name
 
 
     def __set__(self, inst, v):

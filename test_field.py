@@ -12,9 +12,9 @@ class Test(ut.TestCase):
     def setUp(self):
 
         class Person(Versionable):
-            title = Field(name = 'title', default = 'Pan/Pani')
-            name = Field(name = 'name')
-            wage = Numeric(name = 'wage')
+            title = Field(default = 'Pan/Pani')
+            name = Field()
+            wage = Numeric()
 
         self.Person = Person
         self.p = Person()

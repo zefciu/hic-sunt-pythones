@@ -12,9 +12,10 @@ class Test(ut.TestCase):
     def setUp(self):
 
         class Person(Versionable):
-            title = Field(name = 'title', default = 'Pan/Pani')
-            name = Field(name = 'name')
-            wage = Numeric(name = 'wage')
+            title = Field(default = 'Pan/Pani')
+            name = Field()
+            wage = Numeric()
+            __repr_format__ = '{title} {name} v. {version}'
 
         self.Person = Person
         self.p = Person()
@@ -54,4 +55,13 @@ class Test(ut.TestCase):
         self.q.name = 'Jan Zawadzki'
         self.assertEqual(self.p.name, 'Anna Nowak')
         self.assertEqual(self.q.name, 'Jan Zawadzki')
+
+    def test_repr(self):
+        self.assertEqual(str(self.p), 'Pani Anna Nowak v. 2')
+
+    def test_repr_default(self):
+        self.q = self.Person()
+        self.q.name = 'Jan Zawadzki'
+        self.q.commit()
+        self.assertEqual(str(self.q), 'Pan/Pani Jan Zawadzki v. 1')
         
