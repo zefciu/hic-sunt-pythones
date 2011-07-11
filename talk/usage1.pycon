@@ -1,0 +1,18 @@
+>>> class Person(Versionable):
+...     title = Field(default='Pani/Pan')
+...     name = Field()
+...     wage = Numeric()
+... 
+>>> anna = Person()
+>>> anna.name = 'Anna Kowalska'
+>>> anna.wage = 'xyz'
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "field.py", line 14, in __set__
+    type(v), type(self)
+TypeError: Type <type 'str'> is not compatible with <class '__main__.Numeric'>
+>>> anna.wage = 2700
+>>> anna.title
+'Pani/Pan'
+>>> anna.commit()
+1

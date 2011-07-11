@@ -1,0 +1,100 @@
+\documentclass{beamer}
+
+\mode<presentation>
+{
+  \usetheme{Warsaw}
+  % \setbeamercovered{transparent}
+}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+
+% \usepackage{times}
+
+% For pygmentize
+\usepackage{fancyvrb}
+\usepackage{color}
+
+\input{styles}
+
+
+\title[Hic sunt pythones]
+{Hic sunt pythones --- metaprogramowanie w Pythonie}
+
+\author[]{Szymon Pyżalski}
+
+\institute{STX Next}
+
+\date {PyConPL 2011}
+
+% \AtBeginSubsection[]
+% {
+%   \begin{frame}<beamer>{Outline}
+%     \tableofcontents[currentsection,currentsubsection]
+%   \end{frame}
+% }
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  %\pausesections
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section{Introduction}
+
+\subsection{Co chcemy osiągnąć}
+
+\begin{frame}{Nasze cele}
+
+  Chcemy stworzyć obiekt, który:
+  \begin{itemize}
+  \item
+    Umożliwi nadanie polom wartości domyślnych.
+    \pause
+  \item
+    Będzie sprawdzać typy wartości przypisywanych polom.
+    \pause
+  \item
+    Będzie wersjonować zapisane dane.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\input{usage1}
+\end{frame}
+
+
+\subsection{Second Subsection}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\begin{frame}{Make Titles Informative.}
+\end{frame}
+
+\end{document}
+
