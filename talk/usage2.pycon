@@ -1,0 +1,12 @@
+>>> anna.wage = 2700
+>>> anna.commit()
+1
+>>> anna.wage = 3500
+>>> anna.commit()
+2
+>>> anna.checkout(1)
+>>> anna.wage
+2700
+>>> anna.checkout(2)
+>>> anna.wage
+3500

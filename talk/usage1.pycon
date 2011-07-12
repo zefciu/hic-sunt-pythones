@@ -11,8 +11,5 @@ Traceback (most recent call last):
   File "field.py", line 14, in __set__
     type(v), type(self)
 TypeError: Type <type 'str'> is not compatible with <class '__main__.Numeric'>
->>> anna.wage = 2700
 >>> anna.title
 'Pani/Pan'
->>> anna.commit()
-1

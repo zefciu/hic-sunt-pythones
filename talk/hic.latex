@@ -64,9 +64,8 @@
 % - Talk about 30s to 2min per frame. So there should be between about
 %   15 and 30 frames, all told.
 
-\section{Introduction}
 
-\subsection{Co chcemy osiągnąć}
+\section{Co chcemy osiągnąć}
 
 \begin{frame}{Nasze cele}
 
@@ -83,17 +82,52 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}{Przykład użycia}
+\small{
 \input{usage1}
+}
+\end{frame}
+
+\begin{frame}{Przykład użycia c. d.}
+\input{usage2}
 \end{frame}
 
 
-\subsection{Second Subsection}
+\section{Deskryptory}
 
-\begin{frame}{Make Titles Informative.}
+\begin{frame}{Czym jest deskryptor?}
+  \begin{itemize}
+    \item
+      Należy do \emph{klasy}. Ale jego metody otrzymają obiekt jako parametr.
+      \pause
+    \item{}
+      Musi definiować metodę get. Taki deskryptor można ukryć.
+      \pause
+    \item
+      %Może definiować metody \verb|__set__| i \verb|__delete__|.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Make Titles Informative.}
+\begin{frame}{Już znamy...}
+  \begin{itemize}
+    \item
+    %Metody otrzymujemy przez deskryptor \verb|method-wrapper|. Umożliwia on
+    ukrywanie.
+    \pause
+    \item
+    %Podanie \verb|__slots__| dla klasy tworzy kilka deskryptorów.
+    \pause
+    \item
+    %Proste generowanie deskryptorów przez \verb|@property|
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Implementacja deskryptora}
+  \tiny{\input{descr1}}
+\end{frame}
+
+\begin{frame}{Implementacja deskryptora c. d.}
+  \tiny{\input{descr2}}
 \end{frame}
 
 \end{document}

@@ -6,5 +6,6 @@
 *.nav
 *.out
 *.toc
-usage*.tex
 styles.tex
+usage*.tex
+descr*.tex
