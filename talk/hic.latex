@@ -101,24 +101,24 @@
       Należy do \emph{klasy}. Ale jego metody otrzymają obiekt jako parametr.
       \pause
     \item{}
-      Musi definiować metodę get. Taki deskryptor można ukryć.
+      Musi definiować metodę \Verb|\_\_get\_\_|. Taki deskryptor można ukryć.
       \pause
     \item
-      %Może definiować metody \verb|__set__| i \verb|__delete__|.
+      Może definiować metody \Verb|\_\_set\_\_| i \Verb|\_\_delete\_\_|.
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Już znamy...}
   \begin{itemize}
     \item
-    %Metody otrzymujemy przez deskryptor \verb|method-wrapper|. Umożliwia on
+    Metody otrzymujemy przez deskryptor \Verb|method-wrapper|. Umożliwia on
     ukrywanie.
     \pause
     \item
-    %Podanie \verb|__slots__| dla klasy tworzy kilka deskryptorów.
+    Podanie \Verb|\_\_slots\_\_| dla klasy tworzy kilka deskryptorów.
     \pause
     \item
-    %Proste generowanie deskryptorów przez \verb|@property|
+    Proste generowanie deskryptorów przez \Verb|@property|
   \end{itemize}
 \end{frame}
 
