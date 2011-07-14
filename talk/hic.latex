@@ -130,5 +130,10 @@
   \tiny{\input{descr2}}
 \end{frame}
 
+\begin{frame}{Implementacja wersjonowania}
+  \tiny{\input{versionable}}
+\end{frame}
+
+
 \end{document}
 
