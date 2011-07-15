@@ -134,6 +134,43 @@
   \tiny{\input{versionable}}
 \end{frame}
 
+\section{Metaklasy}
+
+\begin{frame}{Problem}
+  \tiny{\input{problem}}
+\end{frame}
+
+\begin{frame}{Czym jest metaklasa}
+   \begin{itemize}
+   \item
+     Metaklasa to klasa, której instancją są klasy.
+     \pause
+   \item
+     Większość klas ,,\emph{new-style}'' jest instancjami metaklasy \Verb|type|.
+     \pause
+   \item
+     Inne metaklasy dziedziczą z tego typu.
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{Po co?}
+   \begin{itemize}
+   \item
+     Wartości klasy możemy zdefiniować przy definicji
+     \pause
+   \item
+     Metody klasy możemy dodać dzięki dekoratorowi \Verb|@classmethod|
+     \pause
+   \item
+     Inicjalizacja klasy
+     \pause
+   \end{itemize}
+\end{frame}
+
+\begin{frame}{Nasza metaklasa}
+  \tiny{\input{meta}}
+\end{frame}
+
 
 \end{document}
 
