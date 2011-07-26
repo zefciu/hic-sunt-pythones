@@ -111,8 +111,7 @@
 \begin{frame}{Już znamy...}
   \begin{itemize}
     \item
-    Metody otrzymujemy przez deskryptor \Verb|method-wrapper|. Umożliwia on
-    ukrywanie.
+    Funkcje są deskryptorami. (\Verb|self| i ukrywanie metod)
     \pause
     \item
     Podanie \Verb|\_\_slots\_\_| dla klasy tworzy kilka deskryptorów.
