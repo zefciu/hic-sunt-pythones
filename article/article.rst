@@ -85,8 +85,8 @@ Korzystając z Pythona na co dzień nie mogliśmy nie spotkać się z pewnymi
 deskryptorami, które są jego integralną częścią. Najpopularniejszymi są:
 
 Funkcja:
-    Funkcje są deskryptorami nie-danych. Ich ``__get__()`` odpowiada za
-    stworzenie obiektu, który przy wywołaniu funkcji jako metody przekaże jej
+    ``__get__()`` funkcji odpowiada za
+    stworzenie obiektu, który przy wywołaniu jej jako metody przekaże do niej 
     odpowiedni ``self``. Jeżeli więc chcemy stworzyć obiekty, które będą w pełni
     emulować funkcje należy zdefiniować dla nich zarówno ``__call__()`` jak i
     ``__get__()``. Funkcje są deskryptorami *niedanych* Możemy je nadpisać w
@@ -94,7 +94,7 @@ Funkcja:
 
 member_descriptor:
     Te deskryptory tworzone są, jeśli przy tworzeniu nowostylowej klasy ustawimy
-    dla niej atrybut \type{__slots__}. Odpowiadają one za dostęp do tak
+    dla niej atrybut ``__slots__``. Odpowiadają one za dostęp do tak
     zdefiniowanych atrybutów.
 
 property: 
@@ -130,6 +130,7 @@ przypadku braku ustawienia wartości podaje wartość domyślną::
             del inst.__dict__[self.name]
 
 Przykład użycia::
+
     >>> from integer_des import IntegerDescriptor
     >>> class A(object):
     ...     x = IntegerDescriptor(default=1)
@@ -187,4 +188,52 @@ możemy rozumieć, jako "cukier syntaktyczny" dla::
     })
 
 Wiedząc, w jaki sposób wołany jest konstruktor metaklasy możemy go nadpisać i
-dodawać dowolną logikę, która ma być wykonana w momencie tworzenia klas.
+dodawać dowolną logikę, która ma być wykonana w momencie tworzenia klas. Na
+przykład poniższa metaklasa::
+
+    import subprocess as sp
+    cls_registry = []
+    
+    class RegisteredMeta(type):
+    
+        def __init__(cls, clsname, bases, dict_):
+            for b in bases:
+                cls_registry.append((b.__name__, clsname))
+    
+            return super(RegisteredMeta, cls).__init__(clsname, bases, dict_)
+    
+        @classmethod
+        def view_graph(metacls):
+            dot = sp.Popen(['dot', '-Tpng'], stdin=sp.PIPE, stdout=sp.PIPE)
+            buf = ['digraph class_hierarchy {']
+    
+            for from_, to in cls_registry:
+                buf.append('{0} -> {1};'.format(from_, to))
+            buf.append('}')
+    
+            data, err = dot.communicate(''.join(buf))
+            display = sp.Popen(['display', '-'], stdin=sp.PIPE)
+            display.communicate(data)
+
+Rejestruje nazwy wszystkich swoich instancji i ich klas bazowych w globalnej
+liście. Po zawołaniu::
+
+    >>> from registered import RegisteredMeta
+    >>> class A(object):
+    ...     __metaclass__ = RegisteredMeta
+    ... 
+    >>> class B(object):
+    ...     __metaclass__ = RegisteredMeta
+    ... 
+    >>> class C(A):
+    ...     pass
+    ... 
+    >>> class D(C, B):
+    ...     pass
+    ... 
+    >>> RegisteredMeta.view_graph()
+
+zostanie wyświetlony wyświetlony wykres:
+
+.. image:: graph.png
+

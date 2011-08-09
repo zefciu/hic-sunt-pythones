@@ -1,5 +1,4 @@
 import subprocess as sp
-import os
 cls_registry = []
 
 class RegisteredMeta(type):
@@ -12,10 +11,13 @@ class RegisteredMeta(type):
 
     @classmethod
     def view_graph(metacls):
-        display = sp.Popen('dot -Tpng | display -', shell=True)
+        dot = sp.Popen(['dot', '-Tpng'], stdin=sp.PIPE, stdout=sp.PIPE)
+        buf = ['digraph class_hierarchy {']
 
-        display.stdin.write('digraph class_hierarchy {')
         for from_, to in cls_registry:
-            display.stdin.write('{0} -> {1};'.format(from_, to))
-        display.stdin.write('}')
-        display.stdin.close()
+            buf.append('{0} -> {1};'.format(from_, to))
+        buf.append('}')
+
+        data, err = dot.communicate(''.join(buf))
+        display = sp.Popen(['display', '-'], stdin=sp.PIPE)
+        display.communicate(data)
