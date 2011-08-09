@@ -1,0 +1,17 @@
+digraph assign {
+    START [shape=ellipse]
+    class_has_attr [label="Czy istnieje Cls.__dict__['att']?" shape=diamond];
+    is_data_desc [label="Czy jest to deskryptor danych??" shape=diamond];
+    use_desc_set [label="Zawołaj __set__(obj, 'value')" shape=box];
+    use_object_attr[label="Ustaw obj.__dict__['att'] = 'value'" shape=box];
+    STOP [shape=ellipse];
+
+    START -> class_has_attr; 
+    class_has_attr -> is_data_desc [label="Tak"];
+    class_has_attr -> use_object_attr [label="Nie"];
+    use_object_attr -> STOP;
+
+    is_data_desc -> use_desc_set [label="Tak"];
+    use_desc_set -> STOP;
+    is_data_desc -> use_object_attr [label="Nie"];
+}

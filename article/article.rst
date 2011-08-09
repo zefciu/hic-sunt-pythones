@@ -42,27 +42,26 @@ jaki Python obsługuje dostęp do atrybutu obiektu.
 Algorytm dostępu do atrybutu
 ----------------------------------------
 Załóżmy, że mamy obiekt ``obj`` typu ``Сls``. Próba uzyskania ``obj.att``
-sprawi, że Python będzie próbował następujących rzeczy (dla uproszczenia
-pomijamy klasy bazowe dla ``Cls``).
+sprawi, że Python użyje następującego algorytmu (dla uproszczenia pomijamy
+klasy bazowe dla ``Cls``).
 
-#. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **danych**,
+.. image:: access.png
+
+.. #. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **danych**,
    zostaje zawołana jego metoda ``__get__()`` i zwrócony wynik.
-
-#. Jeśli istnieje ``obj.__dict__['att']``, zostanie on zwrócony.
-
-#. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **niedanych**,
-   zostaje wywołana jego metoda ``__get__()`` i zwrócony wynik.
-
-#. Jeśli istnieje ``Cls.__dict__['att']``, zostanie on zwrócony.
-
-#. Rzucony zostaje wyjątek ``AttributeError``.
+   #. Jeśli istnieje ``obj.__dict__['att']``, zostanie on zwrócony.
+   #. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **niedanych**,
+      zostaje wywołana jego metoda ``__get__()`` i zwrócony wynik.
+   #. Jeśli istnieje ``Cls.__dict__['att']``, zostanie on zwrócony.
+   #. Rzucony zostaje wyjątek ``AttributeError``.
 
 Z kolei przy przypisaniu ``obj.att = 'value'``:
 
-#. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **danych**,
-   zostaje zawołana jego metoda ``__set__()``.
+.. image:: assign.png
 
-#. ``obj.__dict__['att']`` zostaje ustawione na ``value``.
+.. #. Jeśli istnieje ``Cls.__dict__['att']`` i jest to deskryptor **danych**,
+   zostaje zawołana jego metoda ``__set__()``.
+   #. ``obj.__dict__['att']`` zostaje ustawione na ``value``.
 
 Algorytm ten może wydawać się zawiły, jednak ma on swoje uzasadnienie. Przede
 wszystkim należy zauważyć, że:
@@ -252,3 +251,9 @@ projektowanych przez nas obiektów.
 -----------------------------------
 Linki
 -----------------------------------
+
+#. http://docs.python.org/reference/datamodel.html
+
+#. http://www.cafepy.com/article/python_attributes_and_methods/python_attributes_and_methods.html
+
+#. http://gnosis.cx/publish/programming/metaclass_1.html
