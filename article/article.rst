@@ -233,7 +233,22 @@ liście. Po zawołaniu::
     ... 
     >>> RegisteredMeta.view_graph()
 
-zostanie wyświetlony wyświetlony wykres:
+zostanie wyświetlony wykres:
 
 .. image:: graph.png
 
+------------------------------------
+Podsumowanie
+------------------------------------
+
+Oczywiście ten krótki artykuł traktuje tylko o małym wycinku możliwości
+modyfikacji zachowań, jakie daje nam Python. Jeśli zaś chodzi o zastosowania
+opisanych technik, nie omawia pewnie nawet ich procenta. Myślę jednak, że
+stanowić może dobry wstęp do tych zagadnień. Pozostaje życzyć sobie i
+czytelnikom, abyśmy technik tych używali z głową, wtedy gdy naprawdę zajdzie
+taka potrzeba i wtedy, gdy ich użycie ułatwi, a nie utrudni korzystanie z
+projektowanych przez nas obiektów.
+
+-----------------------------------
+Linki
+-----------------------------------
