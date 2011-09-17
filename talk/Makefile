@@ -1,4 +1,4 @@
-hic.pdf: hic.latex usage1.tex usage2.tex descr1.tex descr2.tex styles.tex versionable.tex problem.tex meta.tex Makefile
+hic.pdf: hic.latex usage1.tex usage2.tex descr1.tex descr2.tex styles.tex versionable.tex problem.tex meta_expl.tex meta.tex Makefile
 	latex -output-format=pdf hic.latex
 
 styles.tex: Makefile
@@ -21,6 +21,9 @@ versionable.tex: versionable.py Makefile
 
 problem.tex: problem.py Makefile
 	pygmentize -o problem.tex problem.py
+
+meta_expl.tex: meta_expl.py Makefile
+	pygmentize -o meta_expl.tex meta_expl.py
 
 meta.tex: meta.py Makefile
 	pygmentize -o meta.tex meta.py

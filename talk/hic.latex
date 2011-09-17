@@ -72,9 +72,6 @@
   Chcemy stworzyć obiekt, który:
   \begin{itemize}
   \item
-    Umożliwi nadanie polom wartości domyślnych.
-    \pause
-  \item
     Będzie sprawdzać typy wartości przypisywanych polom.
     \pause
   \item
@@ -101,11 +98,25 @@
       Należy do \emph{klasy}. Ale jego metody otrzymają obiekt jako parametr.
       \pause
     \item{}
-      Musi definiować metodę \Verb|\_\_get\_\_|. Taki deskryptor można ukryć.
+      Musi definiować metodę \Verb|\_\_get\_\_()|.
       \pause
     \item
-      Może definiować metody \Verb|\_\_set\_\_| i \Verb|\_\_delete\_\_|.
+      Może definiować metody \Verb|\_\_set\_\_()| i \Verb|\_\_delete\_\_()|.
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Dwa rodzaje deskryptorów}
+  \begin{description}
+    \item[non-data descriptor]
+    Definiuje metodę \Verb|\_\_get\_\_()|. Ma priorytet niższy niż wartość
+    zapisana w \Verb|\_\_dict\_\_| obiektu.
+    \pause
+      
+    \item[data descriptor]
+    Definiuje także metodę \Verb|\_\_set\_\_()|. Ma priorytet wyższy niż wartość
+    zapisana w \Verb|\_\_dict\_\_| obiektu.
+    \pause
+  \end{description}
 \end{frame}
 
 \begin{frame}{Już znamy...}
@@ -117,7 +128,7 @@
     Podanie \Verb|\_\_slots\_\_| dla klasy tworzy kilka deskryptorów.
     \pause
     \item
-    Proste generowanie deskryptorów przez \Verb|@property|
+    Proste generowanie deskryptorów (data!) przez \Verb|@property|
   \end{itemize}
 \end{frame}
 
@@ -155,15 +166,18 @@
 \begin{frame}{Po co?}
    \begin{itemize}
    \item
-     Wartości klasy możemy zdefiniować przy definicji
+     Wartości klasy możemy ustawić przy definicji
      \pause
    \item
      Metody klasy możemy dodać dzięki dekoratorowi \Verb|@classmethod|
      \pause
    \item
      Inicjalizacja klasy
-     \pause
    \end{itemize}
+\end{frame}
+
+\begin{frame}{Inicjalizacja klasy}
+  \tiny{\input{meta_expl}}
 \end{frame}
 
 \begin{frame}{Nasza metaklasa}
