@@ -2,7 +2,7 @@
 
 \mode<presentation>
 {
-  \usetheme{Warsaw}
+  \usetheme{Singapore}
   % \setbeamercovered{transparent}
 }
 
@@ -45,8 +45,7 @@
 \begin{document}
 
 \begin{frame}
-  \titlepage
-\end{frame}
+  \titlepage \end{frame}
 
 \begin{frame}{Outline}
   \tableofcontents
@@ -176,12 +175,28 @@
    \end{itemize}
 \end{frame}
 
+\begin{frame}{Znane przykłady}
+   \begin{itemize}
+   \item
+     \Verb|ABCMeta| jako podstawa Abstract Base Classes
+     \pause
+   \item
+     W SQLAlchemy metaklasa \Verb|DeclarativeMeta| pozwala na tworzenie
+     schematów bazy przy tworzeniu klas.
+   \end{itemize}
+\end{frame}
+
 \begin{frame}{Inicjalizacja klasy}
   \tiny{\input{meta_expl}}
 \end{frame}
 
 \begin{frame}{Nasza metaklasa}
   \tiny{\input{meta}}
+\end{frame}
+
+\section{Podsumowanie}
+\begin{frame}{Pytania?}
+  \huge{Pytania?}
 \end{frame}
 
 
