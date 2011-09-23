@@ -70,6 +70,7 @@
 
   Chcemy stworzyć obiekt, który:
   \begin{itemize}
+  \pause
   \item
     Będzie sprawdzać typy wartości przypisywanych polom.
     \pause
@@ -93,6 +94,7 @@
 
 \begin{frame}{Czym jest deskryptor?}
   \begin{itemize}
+  \pause
     \item
       Należy do \emph{klasy}. Ale jego metody otrzymają obiekt jako parametr.
       \pause
@@ -106,6 +108,7 @@
 
 \begin{frame}{Dwa rodzaje deskryptorów}
   \begin{description}
+    \pause
     \item[non-data descriptor]
     Definiuje metodę \Verb|\_\_get\_\_()|. Ma priorytet niższy niż wartość
     zapisana w \Verb|\_\_dict\_\_| obiektu.
@@ -114,12 +117,12 @@
     \item[data descriptor]
     Definiuje także metodę \Verb|\_\_set\_\_()|. Ma priorytet wyższy niż wartość
     zapisana w \Verb|\_\_dict\_\_| obiektu.
-    \pause
   \end{description}
 \end{frame}
 
 \begin{frame}{Już znamy...}
   \begin{itemize}
+  \pause
     \item
     Funkcje są deskryptorami. (\Verb|self| i ukrywanie metod)
     \pause
@@ -151,6 +154,7 @@
 
 \begin{frame}{Czym jest metaklasa}
    \begin{itemize}
+   \pause
    \item
      Metaklasa to klasa, której instancją są klasy.
      \pause
@@ -164,6 +168,7 @@
 
 \begin{frame}{Po co?}
    \begin{itemize}
+   \pause
    \item
      Wartości klasy możemy ustawić przy definicji
      \pause
@@ -177,6 +182,7 @@
 
 \begin{frame}{Znane przykłady}
    \begin{itemize}
+   \pause
    \item
      \Verb|ABCMeta| jako podstawa Abstract Base Classes
      \pause
@@ -195,8 +201,19 @@
 \end{frame}
 
 \section{Podsumowanie}
+\begin{frame}{A jeśli to nam nie wystarczy?}
+    \begin{center}
+    \pause
+    ...wtedy pozostaje nam nadpisanie \Verb|\_\_getattribute\_\_()| (nie\
+        \Verb|\_\_getattr\_\_()|),  \Verb|\_\_setattr\_\_()| i
+    \Verb|\_\_delattr\_\_()|
+    \end{center}
+\end{frame}
+
 \begin{frame}{Pytania?}
+\begin{center}
   \huge{Pytania?}
+\end{center}
 \end{frame}
 
 
