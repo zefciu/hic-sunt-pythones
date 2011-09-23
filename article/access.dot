@@ -1,0 +1,40 @@
+digraph access {
+    START [shape=ellipse];
+    class_has_attr [label="Czy istnieje Cls.__dict__['att']?" shape=diamond];
+    is_data_desc [label="Czy jest to deskryptor danych??" shape=diamond];
+    use_desc_get [label="Zawołaj __get__(obj, Cls) i zwróć wynik" shape=box];
+    obj_has_attr [label="Czy istnieje obj.__dict__['att']?" shape=diamond];
+    use_object_attr[label="Zwróć tę wartość" shape=box];
+    class_has_attr2 [label="Czy istnieje Cls.__dict__['att']?" shape=diamond];
+    is_descriptor [label="Czy to deskryptor?" shape=diamond];
+    attribute_error [label="Rzuć AttributeError" shape=box];
+    use_desc_get2 [label="Zawołaj __get__(obj, Cls) i zwróć wynik" shape=box];
+    use_class_attr [label="Zwróć tę wartość" shape=box];
+    STOP [shape=ellipse];
+
+    START -> class_has_attr;
+
+    class_has_attr -> is_data_desc [label="Tak"];
+    class_has_attr -> obj_has_attr [label="Nie"];
+
+    is_data_desc -> use_desc_get [label="Tak"];
+    use_desc_get -> STOP;
+    is_data_desc -> obj_has_attr [label="Nie"];
+
+    obj_has_attr -> use_object_attr [label="Tak"];
+    use_object_attr -> STOP;
+    obj_has_attr -> class_has_attr2 [label="Nie"];
+
+    
+    class_has_attr2 -> is_descriptor[label="Tak"];
+    class_has_attr2 -> attribute_error[label="Nie"];
+    attribute_error -> STOP;
+
+    is_descriptor -> use_desc_get2[label="Tak"];
+    use_desc_get2 -> STOP;
+    is_descriptor -> use_class_attr[label="Nie"];
+    use_class_attr -> STOP;
+
+    
+}
+
