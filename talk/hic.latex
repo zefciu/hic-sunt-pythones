@@ -24,7 +24,7 @@
 
 \author[]{Szymon Pyżalski}
 
-\institute{STX Next}
+\institute{STX Next python experts}
 
 \date {PyConPL 2011}
 
@@ -45,7 +45,9 @@
 \begin{document}
 
 \begin{frame}
-  \titlepage \end{frame}
+  \titlepage 
+  \url{http://github.com/zefciu/hic-sunt-pythones/}
+\end{frame}
 
 \begin{frame}{Outline}
   \tableofcontents
